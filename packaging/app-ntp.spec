@@ -12,7 +12,7 @@ Requires: app-base
 Requires: app-network
 
 %description
-NTP Server description...
+The NTP Server app provides the network time protocol service for your systems.  Computers and Internet devices can synchronize their clocks against this server to achieve a  high degree of time accuracy.
 
 %package core
 Summary: NTP Server - APIs and install
@@ -23,7 +23,7 @@ Requires: app-network-core
 Requires: ntp >= 4.2.4
 
 %description core
-NTP Server description...
+The NTP Server app provides the network time protocol service for your systems.  Computers and Internet devices can synchronize their clocks against this server to achieve a  high degree of time accuracy.
 
 This package provides the core API and libraries.
 
