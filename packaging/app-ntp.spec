@@ -1,10 +1,12 @@
 
 Name: app-ntp
+Group: ClearOS/Apps
 Version: 6.2.0.beta3
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
-Group: ClearOS/Apps
+Packager: ClearFoundation
+Vendor: ClearFoundation
 Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = %{version}-%{release}
@@ -16,8 +18,8 @@ The NTP Server app provides the network time protocol service for your systems. 
 
 %package core
 Summary: NTP Server - APIs and install
-License: LGPLv3
 Group: ClearOS/Libraries
+License: LGPLv3
 Requires: app-base-core
 Requires: app-network-core
 Requires: ntp >= 4.2.4
