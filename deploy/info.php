@@ -43,6 +43,7 @@ $app['core_requires'] = array(
 
 $app['core_directory_manifest'] = array(
     '/var/clearos/ntp' => array(),
+    '/var/clearos/ntp/backup' => array(),
 );
 
 $app['core_file_manifest'] = array(

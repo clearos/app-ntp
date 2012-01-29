@@ -8,7 +8,7 @@ TIMESTAMP=`date "+%b-%d-%Y-%T"`
 logger -p local6.notice -t installer "app-ntp-core - setting default configuration"
 
 if [ -e /etc/ntp.conf ]; then
-    cp /etc/ntp.conf /var/clearos/ntp/ntp.conf.$TIMESTAMP
+    cp /etc/ntp.conf /var/clearos/ntp/backup/ntp.conf.$TIMESTAMP
 fi
 
 cp /usr/clearos/apps/ntp/deploy/ntp.conf /etc/ntp.conf
