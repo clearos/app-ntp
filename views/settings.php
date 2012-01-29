@@ -40,12 +40,8 @@ $this->lang->load('ntp');
 // Form
 ///////////////////////////////////////////////////////////////////////////////
 
-if ($thanks) {
-    // FIXME: translate
-    echo infobox_highlight('ClearCenter',
-        "<p>Special thanks to ClearCenter for providing time servers.</p>"
-    );
-}
+if ($thanks)
+    echo infobox_highlight('ClearCenter', lang('ntp_time_server_thank_you'));
 
 echo form_open('ntp');
 echo form_header(lang('ntp_time_servers'));
