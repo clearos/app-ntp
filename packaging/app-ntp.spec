@@ -1,7 +1,7 @@
 
 Name: app-ntp
 Epoch: 1
-Version: 1.0.10
+Version: 1.1.0
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
@@ -16,7 +16,7 @@ Requires: app-network
 The NTP Server app provides the network time protocol service for your systems.  Computers and Internet devices can synchronize their clocks against this server to achieve a  high degree of time accuracy.
 
 %package core
-Summary: NTP Server - APIs and install
+Summary: NTP Server - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
