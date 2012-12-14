@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Add sudoers entries
+#--------------------
+
+/usr/sbin/addsudo /usr/sbin/ntpd app-ntp-core

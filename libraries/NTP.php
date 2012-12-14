@@ -57,26 +57,21 @@ clearos_load_language('ntp');
 
 use \clearos\apps\base\Daemon as Daemon;
 use \clearos\apps\base\File as File;
-use \clearos\apps\network\Iface as Iface;
-use \clearos\apps\network\Iface_Manager as Iface_Manager;
-use \clearos\apps\network\Network_Utils as Network_Utils;
+use \clearos\apps\base\Shell as Shell;
 
 clearos_load_library('base/Daemon');
 clearos_load_library('base/File');
-// clearos_load_library('network/Iface');
-// clearos_load_library('network/Iface_Manager');
-clearos_load_library('network/Network_Utils');
+clearos_load_library('base/Shell');
 
 // Exceptions
 //-----------
 
+use \Exception as Exception;
 use \clearos\apps\base\Engine_Exception as Engine_Exception;
 use \clearos\apps\base\File_No_Match_Exception as File_No_Match_Exception;
-use \clearos\apps\base\Validation_Exception as Validation_Exception;
 
 clearos_load_library('base/Engine_Exception');
 clearos_load_library('base/File_No_Match_Exception');
-clearos_load_library('base/Validation_Exception');
 
 ///////////////////////////////////////////////////////////////////////////////
 // C L A S S
@@ -101,6 +96,7 @@ class NTP extends Daemon
     ///////////////////////////////////////////////////////////////////////////////
 
     const FILE_CONFIG = '/etc/ntp.conf';
+    const COMMAND_NTPD = '/usr/sbin/ntpd';
 
     ///////////////////////////////////////////////////////////////////////////////
     // M E T H O D S
@@ -147,5 +143,23 @@ class NTP extends Daemon
         }
 
         return $servers;
+    }
+
+    /**
+     * Synchronizes the clock with NTP server.
+     *
+     * @return void
+     * @throws Engine_Exception, Validation_Exception
+     */
+
+    public function synchronize()
+    {
+        clearos_profile(__METHOD__, __LINE__);
+
+        // TODO: ntpd -q gives no information on why it fails. Is it really failing?
+        $options['validate_exit_code'] = FALSE;
+
+        $shell = new Shell();
+        $shell->execute(self::COMMAND_NTPD, '-q', TRUE, $options);
     }
 }

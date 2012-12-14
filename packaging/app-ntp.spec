@@ -20,6 +20,7 @@ Summary: NTP Server - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
+Requires: app-date-core >= 1:1.4.8
 Requires: app-network-core
 Requires: ntp >= 4.2.4
 

@@ -37,6 +37,7 @@ $app['requires'] = array(
 );
 
 $app['core_requires'] = array(
+    'app-date-core >= 1:1.4.8',
     'app-network-core',
     'ntp >= 4.2.4',
 );
