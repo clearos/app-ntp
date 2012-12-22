@@ -1,7 +1,7 @@
 
 Name: app-ntp
 Epoch: 1
-Version: 1.4.10
+Version: 1.4.12
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
