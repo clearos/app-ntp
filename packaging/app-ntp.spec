@@ -21,7 +21,7 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-date-core >= 1:1.4.8
-Requires: app-network-core
+Requires: app-network-core >= 1:1.4.70
 Requires: ntp >= 4.2.4
 
 %description core
@@ -39,6 +39,7 @@ cp -r * %{buildroot}/usr/clearos/apps/ntp/
 
 install -d -m 0755 %{buildroot}/var/clearos/ntp
 install -d -m 0755 %{buildroot}/var/clearos/ntp/backup
+install -D -m 0755 packaging/network-connected-event %{buildroot}/var/clearos/events/network_connected/ntp
 install -D -m 0644 packaging/ntpd.php %{buildroot}/var/clearos/base/daemon/ntpd.php
 
 %post
@@ -84,4 +85,5 @@ exit 0
 /usr/clearos/apps/ntp/deploy
 /usr/clearos/apps/ntp/language
 /usr/clearos/apps/ntp/libraries
+/var/clearos/events/network_connected/ntp
 /var/clearos/base/daemon/ntpd.php

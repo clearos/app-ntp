@@ -38,7 +38,7 @@ $app['requires'] = array(
 
 $app['core_requires'] = array(
     'app-date-core >= 1:1.4.8',
-    'app-network-core',
+    'app-network-core >= 1:1.4.70',
     'ntp >= 4.2.4',
 );
 
@@ -49,4 +49,8 @@ $app['core_directory_manifest'] = array(
 
 $app['core_file_manifest'] = array(
     'ntpd.php'=> array('target' => '/var/clearos/base/daemon/ntpd.php'),
+    'network-connected-event'=> array(
+        'target' => '/var/clearos/events/network_connected/ntp',
+        'mode' => '0755'
+    ),
 );

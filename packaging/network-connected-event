@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Dynamic IPs and NTP do not mix well.  
+# See http://support.ntp.org/bin/view/Support/ConfiguringNTP#Section_6.13.
+#
+# To avoid unecessary ntpd restarts, we only do so when IP addresses have changed
+
+[ -e /etc/clearos/network.conf ] && source /etc/clearos/network.conf
+
+IP_LIST=""
+
+for IFACE in $EXTIF; do
+    IP=`ip addr show dev $IFACE | grep "inet.*$IFACE$" | awk '{ print $2 }'`
+    IP_LIST="$IP $IP_LIST"
+done
+
+if [ -e /var/clearos/ntp/ips ]; then
+    CURRENT_LIST=`cat /var/clearos/ntp/ips`
+fi
+
+if [ "$CURRENT_LIST" == "$IP_LIST" ]; then
+    exit 0
+fi
+
+echo "$IP_LIST" > /var/clearos/ntp/ips
+
+logger -p local6.notice -t ntp "detected WAN IP change... restarting NTP if running"
+
+/sbin/service ntpd condrestart
