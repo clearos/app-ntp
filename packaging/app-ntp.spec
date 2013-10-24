@@ -1,7 +1,7 @@
 
 Name: app-ntp
 Epoch: 1
-Version: 1.5.0
+Version: 1.5.1
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
@@ -37,8 +37,10 @@ This package provides the core API and libraries.
 mkdir -p -m 755 %{buildroot}/usr/clearos/apps/ntp
 cp -r * %{buildroot}/usr/clearos/apps/ntp/
 
+install -d -m 0755 %{buildroot}/etc/clearos/firewall.d
 install -d -m 0755 %{buildroot}/var/clearos/ntp
 install -d -m 0755 %{buildroot}/var/clearos/ntp/backup
+install -D -m 0755 packaging/10-ntp %{buildroot}/etc/clearos/firewall.d/
 install -D -m 0755 packaging/network-connected-event %{buildroot}/var/clearos/events/network_connected/ntp
 install -D -m 0644 packaging/ntpd.php %{buildroot}/var/clearos/base/daemon/ntpd.php
 
@@ -80,10 +82,12 @@ exit 0
 %exclude /usr/clearos/apps/ntp/packaging
 %exclude /usr/clearos/apps/ntp/tests
 %dir /usr/clearos/apps/ntp
+%dir /etc/clearos/firewall.d
 %dir /var/clearos/ntp
 %dir /var/clearos/ntp/backup
 /usr/clearos/apps/ntp/deploy
 /usr/clearos/apps/ntp/language
 /usr/clearos/apps/ntp/libraries
+/etc/clearos/firewall.d/
 /var/clearos/events/network_connected/ntp
 /var/clearos/base/daemon/ntpd.php

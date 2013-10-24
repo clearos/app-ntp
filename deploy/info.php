@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'ntp';
-$app['version'] = '1.5.0';
+$app['version'] = '1.5.1';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -45,6 +45,7 @@ $app['core_requires'] = array(
 $app['core_directory_manifest'] = array(
     '/var/clearos/ntp' => array(),
     '/var/clearos/ntp/backup' => array(),
+    '/etc/clearos/firewall.d' => array(),
 );
 
 $app['core_file_manifest'] = array(
@@ -52,5 +53,9 @@ $app['core_file_manifest'] = array(
     'network-connected-event'=> array(
         'target' => '/var/clearos/events/network_connected/ntp',
         'mode' => '0755'
+    ),
+    '10-ntp' => array(
+        'target' => '/etc/clearos/firewall.d/',
+        'mode' => '0755',
     ),
 );

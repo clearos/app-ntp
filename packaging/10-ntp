@@ -1,0 +1,1 @@
+iptables -t filter -I INPUT -p udp --dport 123 -m state --state RELATED,ESTABLISHED -j ACCEPT
