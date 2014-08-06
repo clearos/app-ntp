@@ -1,7 +1,7 @@
 
 Name: app-ntp
 Epoch: 1
-Version: 1.5.2
+Version: 1.6.5
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
@@ -80,7 +80,6 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/ntp/packaging
-%exclude /usr/clearos/apps/ntp/tests
 %dir /usr/clearos/apps/ntp
 %dir /etc/clearos/firewall.d
 %dir /var/clearos/ntp
