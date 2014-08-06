@@ -17,7 +17,7 @@ cp /usr/clearos/apps/ntp/deploy/ntp.conf /etc/ntp.conf
 #-----------------------
 
 logger -p local6.notice -t installer "app-ntp-core - enabling NTP server"
-chkconfig ntpd on
+chkconfig ntpd on >/dev/null 2>&1
 
 logger -p local6.notice -t installer "app-ntp-core - starting NTP server"
-service ntpd start
+service ntpd start >/dev/null 2>&1

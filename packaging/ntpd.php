@@ -17,11 +17,11 @@ clearos_load_language('ntp');
 // C O N F I G L E T
 ///////////////////////////////////////////////////////////////////////////////
 
+// PID file is not used in ClearOS 7
 $configlet = array(
 	'title' => lang('ntp_app_name'),
 	'package' => 'ntp',
 	'process_name' => 'ntpd',
-	'pid_file' => '/var/run/ntpd.pid',
 	'reloadable' => FALSE,
 	'url' => '/app/ntp'
 );
