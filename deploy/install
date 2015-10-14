@@ -13,6 +13,16 @@ fi
 
 cp /usr/clearos/apps/ntp/deploy/ntp.conf /etc/ntp.conf
 
+# Disable chrony
+#---------------
+
+CHECK=`systemctl is-enabled chronyd 2>/dev/null`
+if [ "$CHECK" == "enabled" ]; then
+    logger -p local6.notice -t installer "app-ntp-core - disabling chronyd"
+    systemctl disable chronyd.service 2>/dev/null
+    systemctl stop chronyd.service 2>/dev/null
+fi
+
 # Set default start/boot
 #-----------------------
 
