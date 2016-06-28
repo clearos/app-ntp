@@ -10,16 +10,3 @@
 
 export IPTABLES="/sbin/iptables -w"
 /bin/sh /etc/clearos/firewall.d/10-ntp
-
-# Disable chrony
-# FIXME: can be removed in ClearOS 7.2, only required in install script
-#---------------
-
-CHECK=`systemctl is-enabled chronyd 2>/dev/null`
-if [ "$CHECK" == "enabled" ]; then
-    logger -p local6.notice -t installer "app-ntp-core - disabling chronyd"
-    systemctl disable chronyd.service 2>/dev/null
-    systemctl stop chronyd.service 2>/dev/null
-    sleep 3
-    service ntpd start >/dev/null 2>&1
-fi
