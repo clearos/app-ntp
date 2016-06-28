@@ -8,6 +8,7 @@
 # Open port for NTP
 #-------------------
 
+export IPTABLES="/sbin/iptables -w"
 /bin/sh /etc/clearos/firewall.d/10-ntp
 
 # Disable chrony
