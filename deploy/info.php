@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'ntp';
-$app['version'] = '2.2.0';
+$app['version'] = '2.4.0';
 $app['release'] = '1';
 $app['vendor'] = 'ClearFoundation';
 $app['packager'] = 'ClearFoundation';
@@ -40,6 +40,7 @@ $app['core_requires'] = array(
     'app-date-core >= 1:1.4.8',
     'app-network-core >= 1:1.4.70',
     'ntp >= 4.2.4',
+    'syswatch'
 );
 
 $app['core_directory_manifest'] = array(

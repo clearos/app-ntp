@@ -1,7 +1,7 @@
 
 Name: app-ntp
 Epoch: 1
-Version: 2.2.0
+Version: 2.4.0
 Release: 1%{dist}
 Summary: NTP Server
 License: GPLv3
@@ -23,6 +23,7 @@ Requires: app-base-core
 Requires: app-date-core >= 1:1.4.8
 Requires: app-network-core >= 1:1.4.70
 Requires: ntp >= 4.2.4
+Requires: syswatch
 
 %description core
 The NTP Server app provides the network time protocol service for your systems.  Computers and Internet devices can synchronize their clocks against this server to achieve a  high degree of time accuracy.
@@ -80,6 +81,7 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/ntp/packaging
+%exclude /usr/clearos/apps/ntp/unify.json
 %dir /usr/clearos/apps/ntp
 %dir /etc/clearos/firewall.d
 %dir /var/clearos/ntp
